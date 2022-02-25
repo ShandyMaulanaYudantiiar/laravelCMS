@@ -65,7 +65,7 @@ Route::get('category', function() {
 
 Route::get('category/{id}', function($id) {
     if (isset($id)) {
-        return categories::find($id);
+        return categories::where('category_id', '=', $id)->firstOrFail();
     } else {
         return "ID tidak ditemukan";
     }

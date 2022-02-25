@@ -117,4 +117,9 @@ class ArticlesController extends Controller
         return redirect()->route('article.index')
                         ->with('success','Article deleted successfully');
     }
+
+    public function articles_bycategory($id)
+    {
+        return categories::where('category_id', '=', $id)->firstOrFail();
+    }
 }
